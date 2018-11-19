@@ -61,7 +61,7 @@ class SONAflow:
             wrapperFile2 = main.params[ 'DEPENDENCY' ][ 'wrapper2' ]
 #            wrapperFile3 = main.params[ 'DEPENDENCY' ][ 'wrapper3' ]
             main.startUpSleep = int( main.params[ 'SLEEP' ][ 'startup' ] )
-#            main.checkIntentSleep = int( main.params[ 'SLEEP' ][ 'checkintent' ] )
+            main.testSleep = int( main.params[ 'SLEEP' ][ 'test' ] )
 #            main.generalAttemptsNum = int( main.params[ 'RETRY' ][ 'generalAttempts' ] )
             main.numSwitch = int( main.params[ 'MININET' ][ 'switch' ] )
             main.numLinks = int( main.params[ 'MININET' ][ 'links' ] )
@@ -495,6 +495,7 @@ class SONAflow:
         """
         Setup SONA 
         """
+        import time
         import json
         from pprint import pprint
         import requests
@@ -517,6 +518,8 @@ class SONAflow:
                         data=json.dumps(payload));
         pprint(json.dumps(payload))
         print(resp)
+        main.log.info( "Sleeping {} seconds".format( main.testSleep ) )
+        time.sleep( main.testSleep )
 #        if main.initialized == main.FALSE:
 #            main.log.error( "Test components did not start correctly, skipping further tests" )
 #            main.skipCase()

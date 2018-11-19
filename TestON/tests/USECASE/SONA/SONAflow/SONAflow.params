@@ -75,6 +75,7 @@
         <startMN>5</startMN>
         <addFlow>10</addFlow>
         <delFlow>10</delFlow>
+        <test>300</test>
     </SLEEP>
 
     <SCAPY>
