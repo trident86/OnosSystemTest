@@ -62,6 +62,7 @@ class SONAflow:
 #            wrapperFile3 = main.params[ 'DEPENDENCY' ][ 'wrapper3' ]
             main.startUpSleep = int( main.params[ 'SLEEP' ][ 'startup' ] )
             main.testSleep = int( main.params[ 'SLEEP' ][ 'test' ] )
+#            main.checkIntentSleep = int( main.params[ 'SLEEP' ][ 'checkintent' ] )
 #            main.generalAttemptsNum = int( main.params[ 'RETRY' ][ 'generalAttempts' ] )
             main.numSwitch = int( main.params[ 'MININET' ][ 'switch' ] )
             main.numLinks = int( main.params[ 'MININET' ][ 'links' ] )
