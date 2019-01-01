@@ -1,0 +1,103 @@
+
+<PARAMS>
+    # CASE - Descritpion
+    # Openflow 1.0: 1,2,10,1000,3000,1100,3000,1400,3000,1600,3000,1700,100
+    # Openflow 1.3: 1,2,10,1000,3000,1100,3000,1200,3000,1300,3000,1400,3000,1500,3000,1600,3000,1700,3000,1800,3000,1900,3000,2000,100
+    # 1 - Variable initialization and optional pull and build ONOS package
+    # 2 - Install ONOS
+    # 8 - Compare Topology
+    # 9 - Report logs
+    # 10 - Start Mininet with Openflow 1.0
+    # 11 - Start Mininet with Openflow 1.3
+    # 12 - Assign switch to controller
+    # 13 - Create Scapy Components
+    # 14 - Discover hosts with Mininet Pingall
+    # 15 - Discover hosts with Scapy arping ( only discovers scapy hosts )
+    # 16 - Balance ownership of switches
+    # 17 - Activate Flow Objectives
+    # 18 - Stop Mininet
+    # 19 - Copy karaf logs from ONOS nodes to TestON log directory
+    # 66 - Testing Scapy
+    # 100 - Check logs for Errors and Warnings
+    # 1000 - Add flows with MAC selector
+    # 1100 - Add flows with VLAN selector
+    # 1200 - Add flows with ARP selector
+    # 1300 - Add flows with MPLS selector
+    # 1400 - Add flows with IPv4 selector
+    # 1500 - Add flows with IPv6 selector
+    # 1600 - Add flows with UDP selector
+    # 1700 - Add flows with TCP selector
+    # 1800 - Add flows with SCTP selector
+    # 1900 - Add flows with ICMPv4 selector
+    # 2000 - Add flows with ICMPv6 selector
+    # 3000 - Delete flows
+
+    <testcases>1,2,11,12,13,21,16,18,19</testcases>
+
+    <GRAPH>
+        <nodeCluster>VM</nodeCluster>
+        <builds>20</builds>
+    </GRAPH>
+
+    <SCALE>
+        <size>3</size>
+    </SCALE>
+
+    <DEBUG>on</DEBUG>
+
+    <DEPENDENCY>
+        <path>/tests/USECASE/SONA/SONAflow/dependencies/</path>
+        <wrapper1>startUp</wrapper1>
+        <wrapper2>topo</wrapper2>
+        <topology>sonaTopo.py</topology>
+    </DEPENDENCY>
+
+    <ENV>
+        <cellName>sona</cellName>
+        <cellApps>drivers,openflow-base,openstacknode,openstacknetworking,openstacknetworkingui</cellApps>
+    </ENV>
+
+    <GIT>
+        <pull>False</pull>
+        <branch>onos-1.15</branch>
+    </GIT>
+
+    <CTRL>
+        <port>6653</port>
+    </CTRL>
+
+    <TEST>
+        <usePortstate>False</usePortstate>
+    </TEST>
+
+    <SLEEP>
+        <startup>15</startup>
+        <startMN>5</startMN>
+        <addFlow>10</addFlow>
+        <delFlow>10</delFlow>
+        <test>300</test>
+    </SLEEP>
+
+    <SCAPY>
+        <HOSTNAMES>h1,h2,h3,h4,h5,h6</HOSTNAMES>
+    </SCAPY>
+
+    <MININET>
+        <switch>3</switch>
+        <links>3</links>
+        <dpids>
+            <s1>of:0000000000000001</s1>
+            <s2>of:0000000000000002</s2>
+            <s3>of:0000000000000003</s3>
+        </dpids>
+        <ports>
+            <s1>
+                <s2>1</s2>
+                <s3>2</s3>
+            </s1>
+            <s2>
+                <s3>2</s3>
+            </s2>
+        </ports>
+    </MININET>
+</PARAMS>
