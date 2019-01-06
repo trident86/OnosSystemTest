@@ -59,7 +59,7 @@
 
     <GIT>
         <pull>False</pull>
-        <branch>onos-1.15</branch>
+        <branch>onos-1.13</branch>
     </GIT>
 
     <CTRL>

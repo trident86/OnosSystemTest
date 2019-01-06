@@ -97,7 +97,8 @@ class SONAflow:
         - Install ONOS cluster
         - Connect to cli
         """
-        main.initialized = main.testSetUp.ONOSSetUp( main.Cluster, True )
+        #main.initialized = main.testSetUp.ONOSSetUp( main.Cluster, True )
+        main.initialized = main.testSetUp.ONOSSetUp( main.Cluster )
 
     def CASE8( self, main ):
         """
