@@ -502,8 +502,14 @@ class SONAflow:
         import requests
         from requests.auth import HTTPBasicAuth
 
-        json_data=open("/home/sdn/network-cfg.json").read()
+        main.case( "Add Network configurations to the cluster" )
+        main.caseExplanation = "Add Network Configurations for devices" +\
+                               " not discovered yet. One device is allowed" +\
+                               ", the other disallowed."
 
+        main.step( "Add Net Cfg for switch1" )
+        json_data=open("/home/sdn/network-cfg.json").read()
+        main.log.info("data: {}".format( json_data ) )
         payload = json.loads(json_data)
 #pprint(data)
 
@@ -513,12 +519,13 @@ class SONAflow:
 #                       auth=('onos', 'rocks'));
         headers = {'Content-Type': 'application/json'}
         data = json.dumps(payload, sort_keys=True, indent=4)
-        resp = requests.post("http://10.10.108.214:8181/onos/openstacknode/configure",
+        main.log.info("data: {}".format( data ) )
+        resp = requests.post("http://10.10.5.141:8181/onos/openstacknode/configure",
                         headers=headers,
                         auth=HTTPBasicAuth('onos', 'rocks'),
                         data=json.dumps(payload));
-        pprint(json.dumps(payload))
-        print(resp)
+#        pprint(json.dumps(payload))
+#        print(resp)
         main.log.info( "Sleeping {} seconds".format( main.testSleep ) )
         time.sleep( main.testSleep )
 #        if main.initialized == main.FALSE:
