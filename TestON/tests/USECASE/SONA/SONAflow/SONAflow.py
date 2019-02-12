@@ -223,6 +223,7 @@ class SONAflow:
         """
             Create Scapy components
         """
+        import time
         if main.initialized == main.FALSE:
             main.log.error( "Test components did not start correctly, skipping further tests" )
             main.skipCase()
@@ -507,16 +508,11 @@ class SONAflow:
                                " not discovered yet. One device is allowed" +\
                                ", the other disallowed."
 
-        main.step( "Add Net Cfg for switch1" )
-        json_data=open("/home/sdn/network-cfg.json").read()
+        main.step( "Add Net Cfg for switches" )
+        json_data=open("/home/sdn/Config/network-cfg.json").read()
         main.log.info("data: {}".format( json_data ) )
         payload = json.loads(json_data)
-#pprint(data)
 
-#resp = requests.request("POST", 'http://10.10.108.214:8181/onos/openstacknode/configure',
-#                       params=None,
-#                       data=data,
-#                       auth=('onos', 'rocks'));
         headers = {'Content-Type': 'application/json'}
         data = json.dumps(payload, sort_keys=True, indent=4)
         main.log.info("data: {}".format( data ) )
@@ -524,8 +520,68 @@ class SONAflow:
                         headers=headers,
                         auth=HTTPBasicAuth('onos', 'rocks'),
                         data=json.dumps(payload));
-#        pprint(json.dumps(payload))
-#        print(resp)
+#        if main.initialized == main.FALSE:
+#            main.log.error( "Test components did not start correctly, skipping further tests" )
+#            main.skipCase()
+
+    def CASE31( self, main ):
+        """
+        Create Network 
+        """
+        import time
+        import json
+        from pprint import pprint
+        import requests
+        from requests.auth import HTTPBasicAuth
+
+        main.case( "Create Openstack Network" )
+        main.caseExplanation = "Add Network Configurations for devices" +\
+                               " not discovered yet. One device is allowed" +\
+                               ", the other disallowed."
+
+        main.step( "create Openstack network" )
+        json_data=open("/home/sdn/Config/network.json").read()
+        main.log.info("data: {}".format( json_data ) )
+        payload = json.loads(json_data)
+
+        headers = {'Content-Type': 'application/json'}
+        data = json.dumps(payload, sort_keys=True, indent=4)
+        main.log.info("data: {}".format( data ) )
+        resp = requests.post("http://10.10.5.141:8181/onos/openstacknetworking/networks",
+                        headers=headers,
+                        auth=HTTPBasicAuth('onos', 'rocks'),
+                        data=json.dumps(payload));
+#        if main.initialized == main.FALSE:
+#            main.log.error( "Test components did not start correctly, skipping further tests" )
+#            main.skipCase()
+
+    def CASE32( self, main ):
+        """
+        Create Subnet 
+        """
+        import time
+        import json
+        from pprint import pprint
+        import requests
+        from requests.auth import HTTPBasicAuth
+
+        main.case( "Create Openstack Subnet" )
+        main.caseExplanation = "Add Network Configurations for devices" +\
+                               " not discovered yet. One device is allowed" +\
+                               ", the other disallowed."
+
+        main.step( "create Openstack subnet" )
+        json_data=open("/home/sdn/Config/subnet.json").read()
+        main.log.info("data: {}".format( json_data ) )
+        payload = json.loads(json_data)
+
+        headers = {'Content-Type': 'application/json'}
+        data = json.dumps(payload, sort_keys=True, indent=4)
+        main.log.info("data: {}".format( data ) )
+        resp = requests.post("http://10.10.5.141:8181/onos/openstacknetworking/subnets",
+                        headers=headers,
+                        auth=HTTPBasicAuth('onos', 'rocks'),
+                        data=json.dumps(payload));
         main.log.info( "Sleeping {} seconds".format( main.testSleep ) )
         time.sleep( main.testSleep )
 #        if main.initialized == main.FALSE:
