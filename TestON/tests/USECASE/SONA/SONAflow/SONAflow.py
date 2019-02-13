@@ -520,6 +520,13 @@ class SONAflow:
                         headers=headers,
                         auth=HTTPBasicAuth('onos', 'rocks'),
                         data=json.dumps(payload));
+
+# Need to add result
+        stepResult = main.TRUE
+        utilities.assert_equals( expect=main.TRUE,
+                                 actual=stepResult,
+                                 onpass="Successfully populated hostsData",
+                                 onfail="Failed to populate hostsData" )
 #        if main.initialized == main.FALSE:
 #            main.log.error( "Test components did not start correctly, skipping further tests" )
 #            main.skipCase()
@@ -551,6 +558,13 @@ class SONAflow:
                         headers=headers,
                         auth=HTTPBasicAuth('onos', 'rocks'),
                         data=json.dumps(payload));
+
+# Need to add result
+        stepResult = main.TRUE
+        utilities.assert_equals( expect=main.TRUE,
+                                 actual=stepResult,
+                                 onpass="Successfully populated hostsData",
+                                 onfail="Failed to populate hostsData" )
 #        if main.initialized == main.FALSE:
 #            main.log.error( "Test components did not start correctly, skipping further tests" )
 #            main.skipCase()
@@ -584,6 +598,13 @@ class SONAflow:
                         data=json.dumps(payload));
         main.log.info( "Sleeping {} seconds".format( main.testSleep ) )
         time.sleep( main.testSleep )
+
+# Need to add result
+        stepResult = main.TRUE
+        utilities.assert_equals( expect=main.TRUE,
+                                 actual=stepResult,
+                                 onpass="Successfully populated hostsData",
+                                 onfail="Failed to populate hostsData" )
 #        if main.initialized == main.FALSE:
 #            main.log.error( "Test components did not start correctly, skipping further tests" )
 #            main.skipCase()
