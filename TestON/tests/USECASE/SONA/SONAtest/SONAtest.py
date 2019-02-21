@@ -776,7 +776,7 @@ class SONAtest:
         TODO: Check openstack subnet not exists
         """
 
-        main.openstack_network = main.FALSE if stepResult == main.TRUE else main.FALSE
+        main.openstack_subnet = main.FALSE if stepResult == main.TRUE else main.FALSE
         utilities.assert_equals( expect=main.TRUE,
                                  actual=stepResult,
                                  onpass="Successfully removed openstack subnet",
@@ -883,7 +883,7 @@ class SONAtest:
         TODO: Check openstack port not exists & host removed
         """
 
-        main.openstack_network = main.FALSE if stepResult == main.TRUE else main.FALSE
+        main.openstack_port = main.FALSE if stepResult == main.TRUE else main.FALSE
         utilities.assert_equals( expect=main.TRUE,
                                  actual=stepResult,
                                  onpass="Successfully removed openstack port",
@@ -1028,7 +1028,10 @@ class SONAtest:
         main.log.info( "Sleeping {} seconds".format( main.testSleep ) )
         time.sleep( main.testSleep )
 
-    def CASE252( self, main ):
+    """
+    CASE252 is not exist
+    """
+    def CASE253( self, main ):
         """
         Remove openstack security_group_rule
         """

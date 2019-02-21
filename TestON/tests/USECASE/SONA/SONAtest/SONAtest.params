@@ -32,7 +32,7 @@
     # 2000 - Add flows with ICMPv6 selector
     # 3000 - Delete flows
 
-    <testcases>1,2,11,12,13,201,211,212,221,231,241,251,261,263,253,243,233,223,213,16,18,19</testcases>
+    <testcases>1,2,11,12,13,201,211,212,221,231,241,251,261,263,253,243,233,222,223,213,16,18,19</testcases>
 
     <GRAPH>
         <nodeCluster>VM</nodeCluster>

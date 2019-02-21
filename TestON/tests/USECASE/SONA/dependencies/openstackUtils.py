@@ -16,7 +16,7 @@ def openstack_network_create( main, base_url, config_path ):
     else:
         return False
 
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -38,7 +38,7 @@ def openstack_network_update( main, base_url, config_path ):
     else:
         return False
 
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -59,13 +59,13 @@ def openstack_network_remove( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/networks/" + data.network.id,
+    resp = requests.delete(base_url + "/onos/openstacknetworking/networks/" + payload["network"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
@@ -79,7 +79,7 @@ def openstack_subnet_create( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -100,13 +100,13 @@ def openstack_subnet_update( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.put(base_url + "/onos/openstacknetworking/subnets/" + data.subnet.id,
+    resp = requests.put(base_url + "/onos/openstacknetworking/subnets/" + payload["subnet"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'),
                     data=json.dumps(payload));
@@ -121,13 +121,13 @@ def openstack_subnet_remove( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/subnets/" + data.subnet.id,
+    resp = requests.delete(base_url + "/onos/openstacknetworking/subnets/" + payload["subnet"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
@@ -141,7 +141,7 @@ def openstack_port_create( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -162,13 +162,13 @@ def openstack_port_update( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.put(base_url + "/onos/openstacknetworking/ports/" + data.port.id,
+    resp = requests.put(base_url + "/onos/openstacknetworking/ports/" + payload["port"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'),
                     data=json.dumps(payload));
@@ -183,13 +183,13 @@ def openstack_port_remove( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/ports/" + data.port.id,
+    resp = requests.delete(base_url + "/onos/openstacknetworking/ports/" + payload["port"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
@@ -203,7 +203,7 @@ def openstack_floatingip_create( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -224,13 +224,13 @@ def openstack_floatingip_update( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.put(base_url + "/onos/openstacknetworking/floatingips/" + data.floatingip.id,
+    resp = requests.put(base_url + "/onos/openstacknetworking/floatingips/" + payload["floatingip"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'),
                     data=json.dumps(payload));
@@ -245,13 +245,13 @@ def openstack_floatingip_remove( main, base_url, config_path ):
         json_data = open(config_path).read()
     else:
         return False
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/floatingips/" + data.floatingip.id,
+    resp = requests.delete(base_url + "/onos/openstacknetworking/floatingips/" + payload["floatingip"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
@@ -266,7 +266,7 @@ def openstack_security_group_rule_create( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -288,13 +288,13 @@ def openstack_security_group_rule_remove( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/security-group-rules" + data.security_group_rule.id,
+    resp = requests.delete(base_url + "/onos/openstacknetworking/security-group-rules" + payload["security_group_rule"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
@@ -309,7 +309,7 @@ def openstack_security_group_create( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -331,13 +331,13 @@ def openstack_security_group_update( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.put(base_url + "/onos/openstacknetworking/security-groups/" + data.security_group.id,
+    resp = requests.put(base_url + "/onos/openstacknetworking/security-groups/" + payload["security_group"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'),
                     data=json.dumps(payload));
@@ -353,13 +353,13 @@ def openstack_security_group_remove( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/security-groups/" + data.security_group.id,
+    resp = requests.delete(base_url + "/onos/openstacknetworking/security-groups/" + payload["security_group"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
@@ -374,7 +374,7 @@ def openstack_router_create( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
@@ -396,13 +396,13 @@ def openstack_router_update( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.put(base_url + "/onos/openstacknetworking/routers/" + data.id,
+    resp = requests.put(base_url + "/onos/openstacknetworking/routers/" + payload["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'),
                     data=json.dumps(payload));
@@ -418,13 +418,13 @@ def openstack_router_add_interface( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.put(base_url + "/onos/openstacknetworking/routers/" + data.id + "/add_router_interface",
+    resp = requests.put(base_url + "/onos/openstacknetworking/routers/" + payload["id"] + "/add_router_interface",
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'),
                     data=json.dumps(payload));
@@ -440,13 +440,13 @@ def openstack_router_remove_interface( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.put(base_url + "/onos/openstacknetworking/routers/" + data.id + "/remove_router_interface",
+    resp = requests.put(base_url + "/onos/openstacknetworking/routers/" + payload["id"] + "/remove_router_interface",
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'),
                     data=json.dumps(payload));
@@ -462,13 +462,13 @@ def openstack_router_remove( main, base_url, config_path ):
     from requests.auth import HTTPBasicAuth
 
     json_data=open(config_path).read()
-    main.log.info("data: {}".format( json_data ) )
+    # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/routers/" + data.id,
+    resp = requests.delete(base_url + "/onos/openstacknetworking/routers/" + payload["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
