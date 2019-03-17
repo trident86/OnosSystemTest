@@ -1,0 +1,33 @@
+{
+    "port":{
+        "status":"UP",
+        "binding:host_id":"",
+        "description":"",
+        "allowed_address_pairs":[],
+        "tags":[],
+        "extra_dhcp_opts":[],
+        "device_owner":"",
+        "revision_number":3,
+        "port_security_enabled":true,
+        "binding:profile":{},
+        "fixed_ips":[
+            {
+                "subnet_id":"eaae4f59-8ef1-451d-a35d-23b630a30529",
+                "ip_address":"10.0.2.3"
+            }
+        ],
+        "id":"46487222-3ee1-430a-be28-954cd39d4090",
+        "security_groups":["6bc90d5a-989f-4aa5-bf1a-dc1238976b1f"],
+        "device_id":"7f0e7954-240d-4373-bf3e-c1e270db01ad",
+        "name":"",
+        "admin_state_up":true,
+        "network_id":"1daeaeca-e35a-4aaa-bccd-109888d3c93e",
+        "tenant_id":"01f4fac7b31246b1b2acca3202d726eb",
+        "binding:vif_details":{},
+        "binding:vnic_type":"normal",
+        "binding:vif_type":"unbound",
+        "mac_address":"00:00:00:00:00:02",
+        "project_id":"01f4fac7b31246b1b2acca3202d726eb"
+    }
+}
+

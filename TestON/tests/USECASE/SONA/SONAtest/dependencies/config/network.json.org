@@ -1,0 +1,15 @@
+{
+     "network": {  
+         "id": "1daeaeca-e35a-4aaa-bccd-109888d3c93e",  
+         "subnets": [],  
+         "provider:physical_network": "physnet1",  
+         "admin_state_up": true,  
+         "tenant_id":"01f4fac7b31246b1b2acca3202d726eb",  
+         "provider:network_type": "vxlan",  
+         "router:external": false,  
+         "provider:segmentation_id": "18",  
+         "availability_zone_hints": [ "1" ],  
+         "availability_zones": [ "nova" ],  
+         "name": "test-net"
+     }  
+ }  

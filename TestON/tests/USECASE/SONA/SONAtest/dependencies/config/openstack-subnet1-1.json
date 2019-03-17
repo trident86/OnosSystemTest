@@ -1,0 +1,21 @@
+{
+    "subnet": {
+        "id": "eaae4f59-8ef1-451d-a35d-23b630a30529",
+        "enable_dhcp": true,
+        "network_id": "1daeaeca-e35a-4aaa-bccd-109888d3c93e",
+        "tenant_id": "01f4fac7b31246b1b2acca3202d726eb",
+        "cidr": "10.0.1.0/24",
+        "dns_nameservers": [],
+        "allocation_pools": [ {"start":"10.0.1.2","end":"10.0.1.100"} ],
+        "host_routes": [ { "destination": "", "nexthop": "" } ],
+        "ip_version": 4,
+        "gateway_ip": "10.0.1.1",
+        "ipv6_address_mode": "",
+        "ipv6_ra_mode": "",
+        "name": "test-subnet",
+        "segment_id": null,
+        "description" : "",
+        "project_id": "01f4fac7b31246b1b2acca3202d726eb"
+    }
+}
+

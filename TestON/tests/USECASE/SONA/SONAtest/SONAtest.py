@@ -567,6 +567,7 @@ class SONAtest:
         """
         import time
         import json
+        import os
         from pprint import pprint
         import requests
         from requests.auth import HTTPBasicAuth
@@ -578,7 +579,7 @@ class SONAtest:
         main.caseExplanation = "Add Network Configurations for devices"
 
         main.step( "Add Net Cfg for switches" )
-        json_data=open("/home/sdn/Config/network-cfg.json").read()
+        json_data=open(os.path.dirname( main.testFile ) + "/dependencies/config/network-cfg.json").read()
         payload = json.loads(json_data)
 
         headers = {'Content-Type': 'application/json'}
@@ -620,7 +621,7 @@ class SONAtest:
         main.caseExplanation = "Create openstack network for devices"
 
         main.step( "Create Openstack network" )
-        result = main.osUtils.openstack_network_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-network1.json" )
+        result = main.osUtils.openstack_network_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-network1.json" )
 
         """
         TODO: Check openstack network exists
@@ -656,7 +657,7 @@ class SONAtest:
         TODO: Check openstack modified network info
         """
 
-        result = main.osUtils.openstack_network_update( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-network1-1.json")
+        result = main.osUtils.openstack_network_update( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-network1-1.json")
         stepResult = main.TRUE if result == True else main.FALSE
         utilities.assert_equals( expect=main.TRUE,
                                  actual=stepResult,
@@ -680,7 +681,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Remove openstack network" )
-        result = main.osUtils.openstack_network_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-network1-1.json")
+        result = main.osUtils.openstack_network_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-network1-1.json")
 
         """
         TODO: Check openstack network not exists
@@ -710,7 +711,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Create openstack subnet" )
-        result = main.osUtils.openstack_subnet_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-subnet1.json")
+        result = main.osUtils.openstack_subnet_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-subnet1.json")
 
         """
         TODO: Check openstack subnet exists
@@ -740,7 +741,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Update openstack subnet" )
-        result = main.osUtils.openstack_subnet_update( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-subnet1-1.json")
+        result = main.osUtils.openstack_subnet_update( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-subnet1-1.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """
@@ -769,7 +770,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Remove openstack subnet" )
-        result = main.osUtils.openstack_subnet_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-subnet1-1.json")
+        result = main.osUtils.openstack_subnet_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-subnet1-1.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """
@@ -801,10 +802,10 @@ class SONAtest:
         main.step( "Create openstack port" )
         stepResult = main.TRUE
 
-        result = main.osUtils.openstack_port_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-port1.json")
+        result = main.osUtils.openstack_port_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-port1.json")
         if result == False:
             stepResult = main.FALSE
-        result = main.osUtils.openstack_port_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-port2.json")
+        result = main.osUtils.openstack_port_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-port2.json")
         if result == False:
             stepResult = main.FALSE
 
@@ -837,10 +838,10 @@ class SONAtest:
         main.step( "Update openstack port" )
         stepResult = main.TRUE
 
-        result = main.osUtils.openstack_port_update( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-port1-1.json")
+        result = main.osUtils.openstack_port_update( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-port1-1.json")
         if result == False:
             stepResult = main.FALSE
-        result = main.osUtils.openstack_port_update( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-port2-1.json")
+        result = main.osUtils.openstack_port_update( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-port2-1.json")
         if result == False:
             stepResult = main.FALSE
 
@@ -872,10 +873,10 @@ class SONAtest:
         main.step( "Remove openstack port" )
         stepResult = main.TRUE
 
-        result = main.osUtils.openstack_port_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-port1-1.json")
+        result = main.osUtils.openstack_port_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-port1-1.json")
         if result == False:
             stepResult = main.FALSE
-        result = main.osUtils.openstack_port_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-port2-1.json")
+        result = main.osUtils.openstack_port_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-port2-1.json")
         if result == False:
             stepResult = main.FALSE
 
@@ -908,10 +909,10 @@ class SONAtest:
         main.step( "Create openstack floatingip" )
         stepResult = main.TRUE
 
-        result = main.osUtils.openstack_floatingip_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-floatingip1.json")
+        result = main.osUtils.openstack_floatingip_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-floatingip1.json")
         if result == False:
             stepResult = main.FALSE
-        result = main.osUtils.openstack_floatingip_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-floatingip2.json")
+        result = main.osUtils.openstack_floatingip_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-floatingip2.json")
         if result == False:
             stepResult = main.FALSE
 
@@ -944,10 +945,10 @@ class SONAtest:
         main.step( "Update openstack floatingip" )
         stepResult = main.TRUE
 
-        result = main.osUtils.openstack_floatingip_update( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-floatingip1-1.json")
+        result = main.osUtils.openstack_floatingip_update( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-floatingip1-1.json")
         if result == False:
             stepResult = main.FALSE
-        result = main.osUtils.openstack_floatingip_update( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-floatingip2-1.json")
+        result = main.osUtils.openstack_floatingip_update( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-floatingip2-1.json")
         if result == False:
             stepResult = main.FALSE
 
@@ -979,10 +980,10 @@ class SONAtest:
         main.step( "Remove openstack floatingip" )
         stepResult = main.TRUE
 
-        result = main.osUtils.openstack_floatingip_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-floatingip1-1.json")
+        result = main.osUtils.openstack_floatingip_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-floatingip1-1.json")
         if result == False:
             stepResult = main.FALSE
-        result = main.osUtils.openstack_floatingip_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-floatingip2-1.json")
+        result = main.osUtils.openstack_floatingip_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-floatingip2-1.json")
         if result == False:
             stepResult = main.FALSE
 
@@ -1013,7 +1014,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Create openstack security_group_rule" )
-        result = main.osUtils.openstack_security_group_rule_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-securitygrouprule.json")
+        result = main.osUtils.openstack_security_group_rule_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-securitygrouprule.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """
@@ -1046,7 +1047,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Remove openstack security_group_rule" )
-        result = main.osUtils.openstack_security_group_rule_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-securitygroup.json")
+        result = main.osUtils.openstack_security_group_rule_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-securitygroup.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """
@@ -1067,17 +1068,19 @@ class SONAtest:
         """
         import time
 
+        """
         if main.openstack_security_group_rule == main.FALSE:
             main.log.error( "Test components did not start correctly, skipping further tests" )
             main.openstack_security_group = main.FALSE
             main.skipCase()
+        """
         main.case( "Create openstack security_group" )
         main.caseExplanation = "Create openstack security_group for devices" +\
                                " not discovered yet. One device is allowed" +\
                                ", the other disallowed."
 
         main.step( "Create openstack security_group" )
-        result = main.osUtils.openstack_security_group_create( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-securitygroup.json")
+        result = main.osUtils.openstack_security_group_create( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-securitygroup.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """
@@ -1107,7 +1110,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Update openstack security_group" )
-        result = main.osUtils.openstack_subnet_update( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-securitygroup.json")
+        result = main.osUtils.openstack_subnet_update( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-securitygroup.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """
@@ -1136,7 +1139,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Remove openstack security_group" )
-        result = main.osUtils.openstack_security_group_remove( main, "http://10.10.5.141:8181", "/home/sdn/Config/openstack-securitygroup.json")
+        result = main.osUtils.openstack_security_group_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-securitygroup.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """

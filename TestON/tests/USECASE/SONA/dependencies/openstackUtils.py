@@ -11,8 +11,8 @@ def openstack_network_create( main, base_url, config_path ):
     """
     Create openstack network
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
 
@@ -33,8 +33,8 @@ def openstack_network_update( main, base_url, config_path ):
     """
     Update openstack network
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
 
@@ -55,8 +55,8 @@ def openstack_network_remove( main, base_url, config_path ):
     """
     Remove openstack network
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -75,8 +75,8 @@ def openstack_subnet_create( main, base_url, config_path ):
     """
     Create openstack subnet
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -96,8 +96,8 @@ def openstack_subnet_update( main, base_url, config_path ):
     """
     Update openstack subnet
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -117,8 +117,8 @@ def openstack_subnet_remove( main, base_url, config_path ):
     """
     Remove openstack subnet
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -137,8 +137,8 @@ def openstack_port_create( main, base_url, config_path ):
     """
     Create openstack port
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -158,8 +158,8 @@ def openstack_port_update( main, base_url, config_path ):
     """
     Update openstack port
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -179,8 +179,8 @@ def openstack_port_remove( main, base_url, config_path ):
     """
     Remove openstack port
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -199,8 +199,8 @@ def openstack_floatingip_create( main, base_url, config_path ):
     """
     Create openstack floatingip
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -220,8 +220,8 @@ def openstack_floatingip_update( main, base_url, config_path ):
     """
     Update openstack floatingip
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -241,8 +241,8 @@ def openstack_floatingip_remove( main, base_url, config_path ):
     """
     Remove openstack floatingip
     """
-    if os.path.exists(config_path):
-        json_data = open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
     else:
         return False
     # main.log.info("data: {}".format( json_data ) )
@@ -265,7 +265,10 @@ def openstack_security_group_rule_create( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -287,7 +290,10 @@ def openstack_security_group_rule_remove( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -308,7 +314,10 @@ def openstack_security_group_create( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -330,7 +339,10 @@ def openstack_security_group_update( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -352,7 +364,10 @@ def openstack_security_group_remove( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -373,7 +388,10 @@ def openstack_router_create( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -395,7 +413,10 @@ def openstack_router_update( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -417,7 +438,10 @@ def openstack_router_add_interface( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -439,7 +463,10 @@ def openstack_router_remove_interface( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 
@@ -461,7 +488,10 @@ def openstack_router_remove( main, base_url, config_path ):
     import requests
     from requests.auth import HTTPBasicAuth
 
-    json_data=open(config_path).read()
+    if os.path.exists(os.path.dirname( main.testFile ) + config_path):
+        json_data = open(os.path.dirname( main.testFile ) + config_path).read()
+    else:
+        return False
     # main.log.info("data: {}".format( json_data ) )
     payload = json.loads(json_data)
 

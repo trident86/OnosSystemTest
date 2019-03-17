@@ -1,0 +1,8 @@
+{
+  "security_group": {
+    "id": "2076db17-a522-4506-91de-c6dd8e837028",
+    "tenant_id": "01f4fac7b31246b1b2acca3202d726eb",
+    "description": "security group for webservers",
+    "name": "new-webservers"
+  }
+}

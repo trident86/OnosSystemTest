@@ -1,7 +1,6 @@
 
 <PARAMS>
     # CASE - Descritpion
-    # Openflow 1.0: 1,2,10,1000,3000,1100,3000,1400,3000,1600,3000,1700,100
     # Openflow 1.3: 1,2,10,1000,3000,1100,3000,1200,3000,1300,3000,1400,3000,1500,3000,1600,3000,1700,3000,1800,3000,1900,3000,2000,100
     # 1 - Variable initialization and optional pull and build ONOS package
     # 2 - Install ONOS
@@ -19,20 +18,8 @@
     # 19 - Copy karaf logs from ONOS nodes to TestON log directory
     # 66 - Testing Scapy
     # 100 - Check logs for Errors and Warnings
-    # 1000 - Add flows with MAC selector
-    # 1100 - Add flows with VLAN selector
-    # 1200 - Add flows with ARP selector
-    # 1300 - Add flows with MPLS selector
-    # 1400 - Add flows with IPv4 selector
-    # 1500 - Add flows with IPv6 selector
-    # 1600 - Add flows with UDP selector
-    # 1700 - Add flows with TCP selector
-    # 1800 - Add flows with SCTP selector
-    # 1900 - Add flows with ICMPv4 selector
-    # 2000 - Add flows with ICMPv6 selector
-    # 3000 - Delete flows
 
-    <testcases>1,2,11,12,13,201,211,212,221,231,241,251,261,263,253,243,233,222,223,213,16,18,19</testcases>
+    <testcases>1,2,11,12,13,201,211,212,221,231,241,261,251,253,263,243,233,222,223,213,16,18,19</testcases>
 
     <GRAPH>
         <nodeCluster>VM</nodeCluster>

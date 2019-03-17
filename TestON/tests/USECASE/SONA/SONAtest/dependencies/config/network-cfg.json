@@ -1,0 +1,26 @@
+{
+    "nodes" : [
+        {
+            "hostname" : "s1",
+            "type" : "COMPUTE",
+            "managementIp" : "10.10.5.144",
+            "dataIp" : "10.2.5.11",
+            "integrationBridge" : "of:0000000000000001"
+        },
+        {
+            "hostname" : "s2",
+            "type" : "COMPUTE",
+            "managementIp" : "10.10.5.144",
+            "dataIp" : "10.2.5.12",
+            "integrationBridge" : "of:0000000000000002"
+        },
+        {
+            "hostname" : "s3",
+            "type" : "GATEWAY",
+            "managementIp" : "10.10.5.144",
+            "dataIp" : "10.2.5.13",
+            "integrationBridge" : "of:0000000000000003",
+            "uplinkPort" : "ens10"
+         }
+     ]
+}
