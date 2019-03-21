@@ -1047,7 +1047,7 @@ class SONAtest:
                                ", the other disallowed."
 
         main.step( "Remove openstack security_group_rule" )
-        result = main.osUtils.openstack_security_group_rule_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-securitygroup.json")
+        result = main.osUtils.openstack_security_group_rule_remove( main, "http://10.10.5.141:8181", "/dependencies/config/openstack-securitygrouprule.json")
         stepResult = main.TRUE if result == True else main.FALSE
 
         """

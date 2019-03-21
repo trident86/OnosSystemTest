@@ -300,7 +300,7 @@ def openstack_security_group_rule_remove( main, base_url, config_path ):
     headers = {'Content-Type': 'application/json'}
     data = json.dumps(payload, sort_keys=True, indent=4)
     main.log.info("payload: {}".format( data ) )
-    resp = requests.delete(base_url + "/onos/openstacknetworking/security-group-rules" + payload["security_group_rule"]["id"],
+    resp = requests.delete(base_url + "/onos/openstacknetworking/security-group-rules/" + payload["security_group_rule"]["id"],
                     headers=headers,
                     auth=HTTPBasicAuth('onos', 'rocks'));
     main.log.info("resp: {}, {}".format( resp.status_code, resp.text ) )
